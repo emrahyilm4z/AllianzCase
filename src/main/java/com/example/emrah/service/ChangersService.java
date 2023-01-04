@@ -13,8 +13,8 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class ChangersService {
-    private ChangersRepository changersRepository;
-    private ModelMapper modelMapper;
+    private final ChangersRepository changersRepository;
+    private final ModelMapper modelMapper;
 
     public void save(Changers changers) {
         changersRepository.save(changers);

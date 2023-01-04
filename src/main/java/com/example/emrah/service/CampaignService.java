@@ -19,18 +19,18 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class CampaignService {
-    private CampaignRepository campaignRepository;
-    private ChangersService changersService;
-    private ModelMapper modelMapper;
+    private final CampaignRepository campaignRepository;
+    private final ChangersService changersService;
+    private final ModelMapper modelMapper;
 
-    public Boolean add(AddCampaignRequestDto addCampaignRequestDto) {
+    public CampaignResponseDto add(AddCampaignRequestDto addCampaignRequestDto) {
         Campaign campaign = modelMapper.map(addCampaignRequestDto, Campaign.class);
         campaign.setMukerrer(campaignRepository.findAll().stream().anyMatch(element -> element.hashCode() == campaign.hashCode()));
         if (campaign.getCategory().name().equals("HAYAT_SIGORTASI")) {
             campaign.setActive(true);
         }
         campaignRepository.save(campaign);
-        return true;
+        return modelMapper.map(campaign, CampaignResponseDto.class);
     }
 
 
@@ -55,7 +55,7 @@ public class CampaignService {
         return changersService.findByCampaign(campaign);
     }
 
-    private static void mukerrerControl(Campaign campaign) {
+    private void mukerrerControl(Campaign campaign) {
         if (campaign.isMukerrer()) {
             throw new NotChangeableException();
         }

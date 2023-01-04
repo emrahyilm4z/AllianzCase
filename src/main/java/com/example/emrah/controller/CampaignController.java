@@ -3,6 +3,7 @@ package com.example.emrah.controller;
 
 import com.example.emrah.dto.request.AddCampaignRequestDto;
 import com.example.emrah.dto.request.CampaignRequestDto;
+import com.example.emrah.dto.response.CampaignResponseDto;
 import com.example.emrah.dto.response.StatisticsResponseDto;
 import com.example.emrah.service.CampaignService;
 import lombok.AllArgsConstructor;
@@ -17,7 +18,7 @@ public class CampaignController {
     private CampaignService campaignService;
 
     @PostMapping("add")
-    public ResponseEntity<Boolean> add(@RequestBody AddCampaignRequestDto addCampaignRequestDto) {
+    public ResponseEntity<CampaignResponseDto> add(@RequestBody AddCampaignRequestDto addCampaignRequestDto) {
         return new ResponseEntity<>(campaignService.add(addCampaignRequestDto), HttpStatus.CREATED);
     }
 

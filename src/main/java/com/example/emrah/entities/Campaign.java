@@ -2,7 +2,6 @@ package com.example.emrah.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
-
 import javax.validation.constraints.Size;
 import java.util.Objects;
 
