@@ -1,14 +1,13 @@
 package com.example.emrah.repository;
 
 import com.example.emrah.entities.Campaign;
+import com.example.emrah.entities.Changers;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface CampaignRepository extends JpaRepository<Campaign, Long> {
-    List<Campaign> findByActiveIsFalse();
-
-    List<Campaign> findByActiveIsTrue();
+public interface ChangersRepository extends JpaRepository<Changers, Long> {
+    List<Changers> findByCampaign(Campaign campaign);
 }

@@ -1,22 +1,23 @@
 package com.example.emrah.entities;
+public enum Category {
+    TAMAMLAYICI_SAGLIK_SIGORTASI(false),
+    OZEL_SAGLIK_SIGORTASI(false),
+    HAYAT_SIGORTASI(true),
+    DIGER_SIGORTALAR(false);
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-import java.util.Set;
-
-@Entity
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
-public class Category {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private String categoryName;
     private boolean status;
-    @ManyToMany
-    private Set<Campaign> campaigns;
+
+    Category(boolean status) {
+        this.status = status;
+    }
+
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
 }

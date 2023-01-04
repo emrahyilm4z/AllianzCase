@@ -5,7 +5,6 @@ import lombok.*;
 
 import javax.validation.constraints.Size;
 import java.util.Objects;
-import java.util.Set;
 
 
 @Entity
@@ -23,9 +22,7 @@ public class Campaign {
     private String description;
     private boolean mukerrer = false;
     private boolean active = false;
-    @ManyToMany
-    private Set<Category> categories;
-
+    private Category category;
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
