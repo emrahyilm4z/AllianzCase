@@ -7,3 +7,5 @@ This repo is built for Allianz with Spring Boot
 
 <hr>
 
+
+### Postman document [here](https://github.com/emrahyilm4z/AllianzCase/blob/main/Allianz.postman_collection.json)
